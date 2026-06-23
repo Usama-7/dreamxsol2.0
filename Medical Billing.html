@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./responsive.js" defer></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; } html{ scroll-behavior:smooth; } body{ margin:0; background:#070b16; }
+  ::selection{ background:rgba(57,230,255,.3); color:#fff; }
+  @keyframes dx-float { 0%,100%{ transform:translate3d(0,0,0);} 50%{ transform:translate3d(0,-22px,0);} }
+  @keyframes dx-pulse { 0%,100%{ opacity:.4; transform:scale(1);} 50%{ opacity:.75; transform:scale(1.08);} }
+  @keyframes dx-fadeup { from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
+  .dx-fu{ animation:dx-fadeup .9s cubic-bezier(.2,.7,.2,1) both; } .dx-fu2{ animation:dx-fadeup .9s .12s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); } .dx-reveal.dx-in{ opacity:1; transform:none; }
+  .dx-dd{ position:relative; display:flex; align-items:center; }
+  .dx-dd-menu{ position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:18px; opacity:0; visibility:hidden; transition:opacity .2s ease; z-index:60; }
+  .dx-dd:hover .dx-dd-menu{ opacity:1; visibility:visible; }
+  .dx-dd-menu a{ transition:background .2s ease; }
+  .dx-dd-menu a:hover{ background:rgba(57,230,255,.08); }
+</style>
+</helmet>
+<div style="background:#070b16; font-family:'Sora',sans-serif; color:#e7ecf7; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <div class="dx-nav" style="position:sticky; top:0; z-index:50; backdrop-filter:blur(14px); background:rgba(7,11,22,.72); border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="dx-nav-inner">
+      <a class="dx-logo" href="index.html" style="text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:-.01em;">Dream<span style="color:#39e6ff;">X</span></a><button type="button" class="dx-nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="dx-nav-menu">
+      <div class="dx-nav-links" style="display:flex; gap:34px; font-size:14px; align-items:center; flex-wrap:wrap;">
+        <a href="index.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Home</a>
+        <a href="About.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">About</a>
+        <a href="Services.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Services</a>
+        <div class="dx-dd">
+          <span style="cursor:pointer; color:#39e6ff; font-weight:600; display:inline-flex; align-items:center; gap:6px;">Healthcare<span style="font-size:8px; opacity:.7;">▼</span></span>
+          <div class="dx-dd-menu">
+            <div style="width:340px; padding:10px; border-radius:16px; background:rgba(10,15,28,.97); border:1px solid rgba(255,255,255,.1); box-shadow:0 24px 60px rgba(0,0,0,.5);">
+              <a href="Healthcare Apps.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Healthcare Application Development</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">EHR, telehealth & patient apps — plus our own platform.</div></div></div>
+              </a>
+              <a href="Medical Billing.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px; background:rgba(57,230,255,.06);">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#39e6ff,#7c5cff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Medical Billing &amp; Systems</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">Revenue cycle, billing & system migration services.</div></div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="Blog.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Blog</a>
+        <a href="Contact.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Contact</a>
+      </div>
+    </div>
+    <a class="dx-nav-cta" href="Contact.html" style="text-decoration:none; padding:11px 22px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:14px;" style-hover="box-shadow:0 10px 30px rgba(57,230,255,.4);">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div style="position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.05);">
+    <div style="position:absolute; top:-160px; left:-120px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(45,150,255,.4), transparent 65%); filter:blur(22px); animation:dx-float 13s ease-in-out infinite;"></div>
+    <div class="dx-page-header dx-container" style="position:relative; max-width:1200px; margin:0 auto; padding:84px 40px 72px;">
+      <div class="dx-fu" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.28em; color:#39e6ff; text-transform:uppercase;">Home / Healthcare / Medical Billing &amp; Systems</div>
+      <h1 class="dx-fu2" style="font-family:'Space Grotesk',sans-serif; font-size:62px; line-height:1.05; font-weight:700; color:#fff; margin:16px 0 0; letter-spacing:-.03em; max-width:920px;">AI medical billing &amp; <span style="background:linear-gradient(100deg,#39e6ff,#2d96ff); -webkit-background-clip:text; background-clip:text; color:transparent;">healthcare systems</span></h1>
+      <p class="dx-fu2" style="font-size:18px; line-height:1.65; color:#9aa6bd; margin:24px 0 0; max-width:720px;">End-to-end revenue cycle management and healthcare system services — from clean-claim submission and denial recovery to EHR migration, integration and modernization.</p>
+      <div class="dx-fu2" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:30px;">
+        <span style="padding:9px 16px; border-radius:999px; background:rgba(57,230,255,.06); border:1px solid rgba(57,230,255,.2); font-family:'JetBrains Mono',monospace; font-size:12px; color:#9fd9ff;">RCM</span>
+        <span style="padding:9px 16px; border-radius:999px; background:rgba(57,230,255,.06); border:1px solid rgba(57,230,255,.2); font-family:'JetBrains Mono',monospace; font-size:12px; color:#9fd9ff;">ICD-10 / CPT coding</span>
+        <span style="padding:9px 16px; border-radius:999px; background:rgba(57,230,255,.06); border:1px solid rgba(57,230,255,.2); font-family:'JetBrains Mono',monospace; font-size:12px; color:#9fd9ff;">Zero-downtime migration</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BILLING / RCM SERVICES -->
+  <div class="dx-section" style="position:relative; padding:100px 40px;">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="max-width:680px; margin-bottom:46px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Revenue cycle management</div>
+        <h2 class="dx-text-h2" style="font-family:'Space Grotesk',sans-serif; font-size:42px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Medical billing, end to end</h2>
+        <p style="font-size:16px; line-height:1.7; color:#9aa6bd; margin:18px 0 0;">We manage the full revenue cycle so your practice gets paid faster, with fewer denials and cleaner books.</p>
+      </div>
+      <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        <sc-for list="{{ billing }}" as="b" hint-placeholder-count="6">
+          <div style="padding:30px; border-radius:20px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-5px); border-color:rgba(57,230,255,.4);">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#39e6ff;">{{ b.n }}</div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:19px; color:#fff; margin:12px 0 0; font-weight:600;">{{ b.title }}</h3>
+            <p style="font-size:14px; color:#9aa6bd; line-height:1.65; margin:10px 0 0;">{{ b.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS BAND -->
+  <div style="position:relative; padding:64px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal dx-stats-band" style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;">
+      <div><div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#fff;">98%</div><div style="font-size:14px; color:#8a93a8; margin-top:6px;">Clean-claim rate</div></div>
+      <div><div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#39e6ff;">&lt;30d</div><div style="font-size:14px; color:#8a93a8; margin-top:6px;">Average days in A/R</div></div>
+      <div><div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#fff;">25%</div><div style="font-size:14px; color:#8a93a8; margin-top:6px;">Fewer denials</div></div>
+      <div><div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#39e6ff;">24/7</div><div style="font-size:14px; color:#8a93a8; margin-top:6px;">Billing support</div></div>
+    </div>
+  </div>
+
+  <!-- HEALTHCARE SYSTEM SERVICES -->
+  <div class="dx-section" style="position:relative; padding:100px 40px; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="max-width:700px; margin-bottom:46px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Healthcare systems</div>
+        <h2 class="dx-text-h2" style="font-family:'Space Grotesk',sans-serif; font-size:42px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">System services &amp; migration</h2>
+        <p style="font-size:16px; line-height:1.7; color:#9aa6bd; margin:18px 0 0;">Moving off a legacy EHR or stitching disconnected systems together? We handle migration, integration and modernization with zero data loss and minimal downtime.</p>
+      </div>
+      <div class="dx-grid-2" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
+        <sc-for list="{{ systems }}" as="s" hint-placeholder-count="4">
+          <div style="padding:34px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-5px); border-color:rgba(57,230,255,.4);">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+              <div style="width:48px; height:48px; border-radius:13px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:flex; align-items:center; justify-content:center; color:#04111f; font-size:22px;">{{ s.icon }}</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:21px; color:#fff; margin:0; font-weight:600;">{{ s.title }}</h3>
+            </div>
+            <p style="font-size:14.5px; color:#9aa6bd; line-height:1.7; margin:0;">{{ s.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIGRATION PROCESS -->
+  <div class="dx-section" style="position:relative; padding:100px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:980px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:52px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Migration, de-risked</div>
+        <h2 class="dx-text-h2" style="font-family:'Space Grotesk',sans-serif; font-size:42px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">A safe path off legacy systems</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <sc-for list="{{ migration }}" as="m" hint-placeholder-count="4">
+          <div class="dx-timeline" style="display:grid; grid-template-columns:120px 1fr; gap:28px; padding-bottom:34px; border-left:1px solid {{ m.border }}; margin-left:8px; padding-left:34px; position:relative;">
+            <span style="position:absolute; left:-7px; top:4px; width:13px; height:13px; border-radius:50%; background:#39e6ff; box-shadow:0 0 14px #39e6ff;"></span>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#39e6ff;">{{ m.phase }}</div>
+            <div><div style="font-family:'Space Grotesk',sans-serif; font-size:18px; color:#fff; font-weight:600;">{{ m.title }}</div><p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:8px 0 0;">{{ m.desc }}</p></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="dx-section-alt" style="position:relative; padding:90px 40px; border-top:1px solid rgba(255,255,255,.05); overflow:hidden;">
+    <div style="position:absolute; bottom:-160px; left:50%; transform:translateX(-50%); width:780px; height:480px; background:radial-gradient(ellipse at center, rgba(45,110,255,.22), transparent 65%); filter:blur(30px); animation:dx-pulse 11s ease-in-out infinite;"></div>
+    <div class="dx-reveal" style="position:relative; max-width:900px; margin:0 auto; text-align:center;">
+      <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.06; color:#fff; margin:0; font-weight:600; letter-spacing:-.02em;">Ready to clean up your revenue cycle?</h2>
+      <p style="font-size:17px; color:#9aa6bd; margin:18px 0 32px;">Get a free billing audit or a migration assessment — no obligation.</p>
+      <a href="Contact.html" style="text-decoration:none; display:inline-block; padding:16px 36px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:16px; box-shadow:0 16px 44px rgba(57,230,255,.4);" style-hover="transform:translateY(-2px);">Request an assessment</a>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("dx-in"); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    setTimeout(() => { document.querySelectorAll(".dx-reveal").forEach((el) => obs.observe(el)); }, 80);
+  }
+  renderVals() {
+    const billing = [
+      { n: "01", title: "Eligibility & Verification", desc: "Real-time insurance verification and benefits checks before the visit." },
+      { n: "02", title: "Charge Capture & Coding", desc: "Accurate ICD-10 / CPT coding to maximize clean claims and compliance." },
+      { n: "03", title: "Claims Submission", desc: "Electronic claim scrubbing and submission to payers, first time right." },
+      { n: "04", title: "Denial Management", desc: "Root-cause analysis, appeals and re-submission to recover lost revenue." },
+      { n: "05", title: "A/R Follow-up", desc: "Proactive accounts-receivable management to shorten payment cycles." },
+      { n: "06", title: "Patient Billing", desc: "Clear statements, payment plans and support that improve collections." }
+    ];
+    const systems = [
+      { icon: "⇄", title: "EHR / EMR Migration", desc: "Move from legacy or competing EHRs with complete, validated patient, clinical and financial data — no loss, minimal downtime." },
+      { icon: "⛁", title: "Data Migration & Cleansing", desc: "Extract, transform, de-duplicate and reconcile records across formats and standards before they ever reach the new system." },
+      { icon: "◈", title: "Integration & Interoperability", desc: "HL7, FHIR and API bridges connecting EHRs, labs, pharmacies, clearinghouses and payers into one connected flow." },
+      { icon: "↻", title: "System Modernization", desc: "Re-platform aging healthcare systems to secure, scalable, cloud-ready architecture without disrupting operations." }
+    ];
+    const migration = [
+      { phase: "Phase 1", title: "Assess & plan", desc: "Audit the source system, map data and define a phased, low-risk migration plan.", border: "rgba(57,230,255,.25)" },
+      { phase: "Phase 2", title: "Migrate & validate", desc: "Move data in controlled batches with reconciliation and validation at every step.", border: "rgba(57,230,255,.25)" },
+      { phase: "Phase 3", title: "Parallel run", desc: "Run old and new systems side by side to confirm accuracy before cutover.", border: "rgba(57,230,255,.25)" },
+      { phase: "Go-live", title: "Cutover & support", desc: "Switch over with on-call support, training and monitoring for a smooth landing.", border: "transparent" }
+    ];
+    return { billing, systems, migration };
+  }
+}
+</script>
+</body>
+</html>

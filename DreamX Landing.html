@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./responsive.js" defer></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:#070b16; }
+  ::selection{ background:rgba(57,230,255,.3); color:#fff; }
+  @keyframes dx-float { 0%,100%{ transform:translate3d(0,0,0);} 50%{ transform:translate3d(0,-26px,0);} }
+  @keyframes dx-float2 { 0%,100%{ transform:translate3d(0,0,0);} 50%{ transform:translate3d(20px,22px,0);} }
+  @keyframes dx-pulse { 0%,100%{ opacity:.45; transform:scale(1);} 50%{ opacity:.8; transform:scale(1.08);} }
+  @keyframes dx-fadeup { from{ opacity:0; transform:translateY(28px);} to{ opacity:1; transform:translateY(0);} }
+  @keyframes dx-shift { 0%{ background-position:0% 50%;} 100%{ background-position:200% 50%;} }
+  @keyframes dx-marquee { from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+  @keyframes dx-line { 0%{ transform:translateX(-100%);} 100%{ transform:translateX(100%);} }
+  .dx-fu{ animation:dx-fadeup .9s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-fu2{ animation:dx-fadeup .9s .15s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-fu3{ animation:dx-fadeup .9s .3s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-reveal{ opacity:0; transform:translateY(36px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .dx-reveal.dx-in{ opacity:1; transform:none; }
+  .dx-still *{ animation:none !important; }
+  .dx-still .dx-reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  @keyframes dx-slidein { from{ opacity:0; transform:translateX(-42px);} to{ opacity:1; transform:none;} }
+  @keyframes dx-zoomin { from{ opacity:0; transform:scale(.9);} to{ opacity:1; transform:scale(1);} }
+  @keyframes dx-blurin { from{ opacity:0; filter:blur(14px);} to{ opacity:1; filter:blur(0);} }
+  .hm-slide .dx-fu{ animation:dx-slidein .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-slide .dx-fu2{ animation:dx-slidein .9s .15s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-slide .dx-fu3{ animation:dx-slidein .9s .3s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-zoom .dx-fu{ animation:dx-zoomin .85s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-zoom .dx-fu2{ animation:dx-zoomin .85s .15s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-zoom .dx-fu3{ animation:dx-zoomin .85s .3s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-blur .dx-fu{ animation:dx-blurin 1s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-blur .dx-fu2{ animation:dx-blurin 1s .18s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-blur .dx-fu3{ animation:dx-blurin 1s .36s cubic-bezier(.2,.7,.2,1) both; }
+  .hm-none .dx-fu, .hm-none .dx-fu2, .hm-none .dx-fu3{ animation:none; }
+  @keyframes dx-radar { 0%{ transform:scale(.12); opacity:0;} 14%{ opacity:.55;} 100%{ transform:scale(1.9); opacity:0;} }
+  @keyframes dx-twinkle { 0%,100%{ opacity:.2;} 50%{ opacity:1;} }
+  @keyframes dx-eq { 0%,100%{ transform:scaleY(.18);} 50%{ transform:scaleY(1);} }
+  @keyframes dx-dash { to{ stroke-dashoffset:-1000; } }
+  @keyframes dx-drift { 0%,100%{ transform:translate(0,0);} 50%{ transform:translate(20px,-16px);} }
+</style>
+</helmet>
+<div class="{{ rootClass }}" style="background:#070b16; font-family:'Sora',sans-serif; color:#e7ecf7; overflow-x:hidden;">
+
+  <!-- ============ NAV ============ -->
+  <div class="dx-nav" style="position:sticky; top:0; z-index:50; backdrop-filter:blur(14px); background:rgba(7,11,22,.72); border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="dx-nav-inner">
+      <a class="dx-logo" href="#hero" style="text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:-.01em;">Dream<span style="color:#39e6ff;">X</span></a><button type="button" class="dx-nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="dx-nav-menu">
+      <div class="dx-nav-links" style="display:flex; gap:34px; font-size:14px; flex-wrap:wrap;">
+        <a href="#about" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">About</a>
+        <a href="#services" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Services</a>
+        <a href="#tech" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Technologies</a>
+        <a href="#faq" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">FAQ</a>
+        <a href="#contact" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Contact</a>
+      </div>
+    </div>
+    <a class="dx-nav-cta" href="#contact" style="text-decoration:none; padding:11px 22px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:14px;" style-hover="box-shadow:0 10px 30px rgba(57,230,255,.4);">Get Started</a>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <div id="hero" class="{{ heroMotionClass }}" style="position:relative; overflow:hidden;">
+    <sc-if value="{{ bgOrbs }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute; inset:0; pointer-events:none;">
+        <div style="position:absolute; top:-180px; left:-140px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(45,150,255,.5), transparent 65%); filter:blur(22px); animation:dx-float 12s ease-in-out infinite;"></div>
+        <div style="position:absolute; top:60px; right:-160px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.38), transparent 65%); filter:blur(22px); animation:dx-float2 14s ease-in-out infinite;"></div>
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.55) 1px, transparent 1px); background-size:48px 48px; opacity:.05;"></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ bgRings }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.55) 1px, transparent 1px); background-size:48px 48px; opacity:.04;"></div>
+        <div style="position:absolute; top:48%; right:26%;">
+          <span style="position:absolute; left:50%; top:50%; width:720px; height:720px; margin:-360px 0 0 -360px; border-radius:50%; border:1px solid rgba(57,230,255,.4); animation:dx-radar 6.5s ease-out infinite;"></span>
+          <span style="position:absolute; left:50%; top:50%; width:720px; height:720px; margin:-360px 0 0 -360px; border-radius:50%; border:1px solid rgba(57,230,255,.4); animation:dx-radar 6.5s 1.6s ease-out infinite;"></span>
+          <span style="position:absolute; left:50%; top:50%; width:720px; height:720px; margin:-360px 0 0 -360px; border-radius:50%; border:1px solid rgba(45,150,255,.45); animation:dx-radar 6.5s 3.2s ease-out infinite;"></span>
+          <span style="position:absolute; left:50%; top:50%; width:720px; height:720px; margin:-360px 0 0 -360px; border-radius:50%; border:1px solid rgba(57,230,255,.4); animation:dx-radar 6.5s 4.8s ease-out infinite;"></span>
+          <span style="position:absolute; left:50%; top:50%; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:50%; background:#39e6ff; box-shadow:0 0 24px #39e6ff; animation:dx-twinkle 3s ease-in-out infinite;"></span>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ bgNetwork }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none; opacity:.6;">
+        <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" style="width:100%; height:100%;">
+          <g stroke="rgba(57,230,255,.16)" stroke-width="1" fill="none">
+            <line x1="120" y1="120" x2="320" y2="80"></line><line x1="320" y1="80" x2="520" y2="180"></line>
+            <line x1="520" y1="180" x2="760" y2="90"></line><line x1="760" y1="90" x2="980" y2="150"></line>
+            <line x1="120" y1="120" x2="180" y2="360"></line><line x1="180" y1="360" x2="420" y2="420"></line>
+            <line x1="520" y1="180" x2="420" y2="420"></line><line x1="420" y1="420" x2="680" y2="360"></line>
+            <line x1="760" y1="90" x2="680" y2="360"></line><line x1="680" y1="360" x2="920" y2="440"></line>
+            <line x1="980" y1="150" x2="1080" y2="300"></line><line x1="920" y1="440" x2="1080" y2="300"></line>
+            <line x1="320" y1="80" x2="420" y2="420"></line><line x1="680" y1="360" x2="1080" y2="300"></line>
+          </g>
+          <g fill="#39e6ff">
+            <circle cx="120" cy="120" r="3.5" style="animation:dx-twinkle 3s ease-in-out infinite;"></circle>
+            <circle cx="320" cy="80" r="3.5" style="animation:dx-twinkle 3.4s .3s ease-in-out infinite;"></circle>
+            <circle cx="520" cy="180" r="3.5" style="animation:dx-twinkle 2.8s .6s ease-in-out infinite;"></circle>
+            <circle cx="760" cy="90" r="3.5" style="animation:dx-twinkle 3.6s .2s ease-in-out infinite;"></circle>
+            <circle cx="980" cy="150" r="3.5" style="animation:dx-twinkle 3.1s .9s ease-in-out infinite;"></circle>
+            <circle cx="180" cy="360" r="3.5" style="animation:dx-twinkle 2.9s .5s ease-in-out infinite;"></circle>
+            <circle cx="420" cy="420" r="4" style="animation:dx-twinkle 3.3s .1s ease-in-out infinite;"></circle>
+            <circle cx="680" cy="360" r="4" style="animation:dx-twinkle 3.5s .7s ease-in-out infinite;"></circle>
+            <circle cx="920" cy="440" r="3.5" style="animation:dx-twinkle 2.7s 1s ease-in-out infinite;"></circle>
+            <circle cx="1080" cy="300" r="3.5" style="animation:dx-twinkle 3.2s .4s ease-in-out infinite;"></circle>
+          </g>
+        </svg>
+      </div>
+    </sc-if>
+    <sc-if value="{{ bgDenseNet }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none; opacity:.6;">
+        <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" style="width:100%; height:100%;">
+          <g style="animation:dx-drift 20s ease-in-out infinite;">
+            <sc-for list="{{ dnLines }}" as="ln" hint-placeholder-count="80">
+              <line x1="{{ ln.x1 }}" y1="{{ ln.y1 }}" x2="{{ ln.x2 }}" y2="{{ ln.y2 }}" stroke="rgba(57,230,255,.13)" stroke-width="1"></line>
+            </sc-for>
+            <sc-for list="{{ dnNodes }}" as="nd" hint-placeholder-count="40">
+              <circle cx="{{ nd.x }}" cy="{{ nd.y }}" r="2.6" fill="#39e6ff" style="{{ nd.style }}"></circle>
+            </sc-for>
+          </g>
+        </svg>
+      </div>
+    </sc-if>
+    <sc-if value="{{ bgFlow }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none; opacity:.55;">
+        <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" style="width:100%; height:100%;">
+          <g fill="none" stroke-linecap="round" stroke-dasharray="6 16">
+            <path d="M-20,90 C300,40 900,150 1220,80" stroke="rgba(57,230,255,.55)" stroke-width="1.6" style="animation:dx-dash 9s linear infinite;"></path>
+            <path d="M-20,200 C320,260 880,140 1220,220" stroke="rgba(45,150,255,.5)" stroke-width="1.4" style="animation:dx-dash 12s linear infinite;"></path>
+            <path d="M-20,320 C340,250 860,400 1220,310" stroke="rgba(57,230,255,.45)" stroke-width="1.6" style="animation:dx-dash 10.5s linear infinite;"></path>
+            <path d="M-20,430 C300,500 900,360 1220,450" stroke="rgba(45,150,255,.45)" stroke-width="1.4" style="animation:dx-dash 13.5s linear infinite;"></path>
+            <path d="M-20,540 C360,470 840,600 1220,520" stroke="rgba(57,230,255,.4)" stroke-width="1.6" style="animation:dx-dash 11s linear infinite;"></path>
+          </g>
+          <g fill="#39e6ff">
+            <circle cx="300" cy="62" r="3" style="animation:dx-twinkle 3s ease-in-out infinite;"></circle>
+            <circle cx="880" cy="148" r="3" style="animation:dx-twinkle 3.4s .4s ease-in-out infinite;"></circle>
+            <circle cx="340" cy="262" r="3" style="animation:dx-twinkle 2.8s .7s ease-in-out infinite;"></circle>
+            <circle cx="860" cy="392" r="3" style="animation:dx-twinkle 3.6s .2s ease-in-out infinite;"></circle>
+            <circle cx="360" cy="476" r="3" style="animation:dx-twinkle 3.1s .9s ease-in-out infinite;"></circle>
+          </g>
+        </svg>
+      </div>
+    </sc-if>
+    <sc-if value="{{ bgSignals }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute; inset:0; overflow:hidden; pointer-events:none; display:flex; align-items:flex-end; opacity:.45; -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%); mask-image:linear-gradient(180deg,transparent,#000 55%);">
+        <div style="display:flex; align-items:flex-end; gap:7px; width:100%; height:62%; padding:0 28px;">
+          <sc-for list="{{ eqBars }}" as="b" hint-placeholder-count="40">
+            <span style="{{ b.style }}"></span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <div class="dx-hero-grid dx-split dx-container" style="position:relative; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding:96px 40px 88px;">
+      <div>
+        <div class="dx-fu" style="display:inline-flex; align-items:center; gap:9px; padding:8px 16px; border:1px solid rgba(57,230,255,.3); border-radius:999px; background:rgba(57,230,255,.06); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em; color:#39e6ff; text-transform:uppercase;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#39e6ff; box-shadow:0 0 10px #39e6ff;"></span>Digital Product Studio
+        </div>
+        <h1 class="dx-fu2 dx-text-hero" style="font-family:'Space Grotesk',sans-serif; font-size:78px; line-height:1.0; font-weight:700; color:#fff; margin:24px 0 0; letter-spacing:-.03em;">Digitalize<br>Your <span style="background:linear-gradient(100deg,#39e6ff,#2d96ff); -webkit-background-clip:text; background-clip:text; color:transparent;">Dreams</span></h1>
+        <p class="dx-fu2" style="font-size:18px; line-height:1.65; color:#9aa6bd; margin:26px 0 0; max-width:540px;">Highly skilled developers, technical experts and strategists — the unicorns and development ninjas who build the product that meets your vision. Start to finish.</p>
+        <div class="dx-fu3 dx-btn-row" style="display:flex; gap:14px; margin-top:38px;">
+          <a href="#services" style="text-decoration:none; padding:15px 30px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:15px; box-shadow:0 14px 40px rgba(57,230,255,.32);" style-hover="transform:translateY(-2px); box-shadow:0 20px 50px rgba(57,230,255,.45);">See how we can help</a>
+          <a href="#about" style="text-decoration:none; padding:15px 30px; border-radius:999px; border:1px solid rgba(255,255,255,.18); color:#e7ecf7; font-weight:500; font-size:15px;" style-hover="background:rgba(255,255,255,.06);">Our work →</a>
+        </div>
+        <div class="dx-fu3 dx-stats-row" style="display:flex; gap:44px; margin-top:50px;">
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">250+</div><div style="font-size:13px; color:#8a93a8;">Products shipped</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">8</div><div style="font-size:13px; color:#8a93a8;">Core disciplines</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">24/7</div><div style="font-size:13px; color:#8a93a8;">Support</div></div>
+        </div>
+      </div>
+      <div class="dx-fu3 dx-visual-lg" style="position:relative; height:450px;">
+        <div style="position:absolute; inset:0; border-radius:24px; background:linear-gradient(145deg, rgba(57,230,255,.16), rgba(45,150,255,.05)); border:1px solid rgba(255,255,255,.12); box-shadow:0 30px 80px rgba(0,0,0,.45); overflow:hidden;">
+          <div style="padding:24px;">
+            <div style="display:flex; gap:7px; margin-bottom:20px;"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span></div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:13px; line-height:2.1; color:#9fd9ff;">
+              <div style="opacity:.55;">// deploy.production</div>
+              <div><span style="color:#2d96ff;">const</span> dream = <span style="color:#39e6ff;">build</span>(vision);</div>
+              <div>dream.<span style="color:#39e6ff;">ship</span>(); <span style="opacity:.5;">✓ live</span></div>
+            </div>
+            <div style="margin-top:22px; height:1px; background:rgba(255,255,255,.1);"></div>
+            <div style="display:flex; gap:12px; margin-top:20px;">
+              <div style="flex:1; height:78px; border-radius:12px; background:rgba(57,230,255,.12); border:1px solid rgba(57,230,255,.2);"></div>
+              <div style="flex:1; height:78px; border-radius:12px; background:rgba(45,150,255,.1); border:1px solid rgba(255,255,255,.08);"></div>
+            </div>
+            <div style="margin-top:14px; height:128px; border-radius:12px; background:linear-gradient(135deg, rgba(45,150,255,.18), rgba(57,230,255,.05)); border:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden;">
+              <svg viewBox="0 0 320 128" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%;"><polyline points="0,96 55,74 110,86 165,42 220,58 275,20 320,38" fill="none" stroke="#39e6ff" stroke-width="2.5"/></svg>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute; bottom:-22px; left:-26px; padding:14px 18px; border-radius:14px; background:rgba(12,18,34,.92); border:1px solid rgba(57,230,255,.25); animation:dx-float 7s ease-in-out infinite;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">99.9% uptime</div>
+        </div>
+        <div style="position:absolute; top:-18px; right:-18px; padding:14px 18px; border-radius:14px; background:rgba(12,18,34,.92); border:1px solid rgba(45,150,255,.3); animation:dx-float2 9s ease-in-out infinite;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#9fd9ff;">+250 shipped</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <div id="about" style="position:relative; padding:110px 40px; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal dx-split" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:.95fr 1.05fr; gap:64px; align-items:center;">
+      <div class="dx-visual-md" style="position:relative; height:420px; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:linear-gradient(160deg, rgba(45,150,255,.14), rgba(7,11,22,.4));">
+        <div style="position:absolute; top:-80px; right:-60px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.4), transparent 65%); filter:blur(18px); animation:dx-pulse 8s ease-in-out infinite;"></div>
+        <div style="position:absolute; inset:0; padding:34px; display:flex; flex-direction:column; justify-content:flex-end;">
+          <div class="dx-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div style="padding:20px; border-radius:16px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(6px);"><div style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; color:#fff;">12+</div><div style="font-size:12px; color:#9aa6bd;">Industries served</div></div>
+            <div style="padding:20px; border-radius:16px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(6px);"><div style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; color:#39e6ff;">∞</div><div style="font-size:12px; color:#9aa6bd;">Product support, for life</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Who we are</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Powerful apps, websites &amp; products. Start-to-finish.</h2>
+        <p style="font-size:16px; line-height:1.75; color:#9aa6bd; margin:22px 0 0;">DreamX is a trailblazer in digital product development for brands of all sizes. With unwavering commitment to reliability, we expertly create and maintain apps, websites, mobile products, widgets, e-commerce tools and enterprise portals — and we stand by our work for life.</p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:28px;">
+          <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:#cdd6e6;"><span style="color:#39e6ff;">✦</span> Reliability &amp; craftsmanship, guaranteed</div>
+          <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:#cdd6e6;"><span style="color:#39e6ff;">✦</span> From ideation to deployment, one team</div>
+          <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:#cdd6e6;"><span style="color:#39e6ff;">✦</span> Brands of every size, every industry</div>
+        </div>
+        <a href="#services" style="text-decoration:none; display:inline-block; margin-top:32px; padding:14px 28px; border-radius:999px; border:1px solid rgba(57,230,255,.35); color:#39e6ff; font-weight:600; font-size:15px;" style-hover="background:rgba(57,230,255,.08);">Read more →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <div id="services" style="position:relative; padding:110px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="text-align:center; max-width:680px; margin:0 auto 52px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">What we do</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Our areas of expertise</h2>
+        <p style="font-size:16px; line-height:1.7; color:#9aa6bd; margin:18px 0 0;">Hire us to cover any skill gap or project need — across eight core disciplines.</p>
+      </div>
+      <div class="dx-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+          <div style="padding:26px; border-radius:18px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease, background .3s ease;" style-hover="transform:translateY(-6px); border-color:rgba(57,230,255,.4); background:rgba(57,230,255,.05);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <div style="width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; color:#04111f; font-size:18px;">{{ s.n }}</div>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px;">{{ s.title }}</div>
+            <div style="font-size:13.5px; color:#8a93a8; margin-top:9px; line-height:1.6;">{{ s.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHY US / VALUES ============ -->
+  <div style="position:relative; padding:110px 40px; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div class="dx-section-head" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:46px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">How we engage</div>
+          <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Built around your goals</h2>
+        </div>
+      </div>
+      <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <div style="position:relative; padding:34px; border-radius:22px; background:linear-gradient(160deg, rgba(57,230,255,.1), rgba(255,255,255,.02)); border:1px solid rgba(57,230,255,.22); overflow:hidden;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#39e6ff;">01</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:23px; color:#fff; margin:16px 0 0; font-weight:600;">Build Your Dedicated Teams</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:12px 0 0;">Fast-track projects with the best technical and management talent. Increase quality and efficiency while retaining complete control of your teams.</p>
+        </div>
+        <div style="position:relative; padding:34px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#39e6ff;">02</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:23px; color:#fff; margin:16px 0 0; font-weight:600;">Fixed Price Project</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:12px 0 0;">We design and develop your vision. Get a comprehensive product development experience from design to delivery — with reduced development costs.</p>
+        </div>
+        <div style="position:relative; padding:34px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#39e6ff;">03</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:23px; color:#fff; margin:16px 0 0; font-weight:600;">All-In-One Solution</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:12px 0 0;">Need to fill gaps in your development team or looking for specific skill sets? DreamX augments your team for fast, efficient success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INDUSTRIES + TECH ============ -->
+  <div id="tech" style="position:relative; padding:110px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="text-align:center; max-width:680px; margin:0 auto 44px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Domains &amp; technologies</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">We specialize across the stack</h2>
+      </div>
+
+      <!-- industries chips -->
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:54px;">
+        <sc-for list="{{ industries }}" as="ind" hint-placeholder-count="12">
+          <span style="padding:10px 18px; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); font-size:14px; color:#cdd6e6; transition:all .25s ease;" style-hover="border-color:rgba(57,230,255,.45); color:#fff; background:rgba(57,230,255,.06);">{{ ind }}</span>
+        </sc-for>
+      </div>
+
+      <!-- tech tabs -->
+      <div style="border:1px solid rgba(255,255,255,.08); border-radius:22px; background:rgba(255,255,255,.02); overflow:hidden;">
+        <div style="display:flex; flex-wrap:wrap; gap:8px; padding:18px; border-bottom:1px solid rgba(255,255,255,.07);">
+          <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="6">
+            <div onClick="{{ cat.onClick }}" style="{{ cat.style }}">{{ cat.name }}</div>
+          </sc-for>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; padding:30px;">
+          <sc-for list="{{ techList }}" as="tag" hint-placeholder-count="10">
+            <span style="padding:9px 16px; border-radius:10px; background:rgba(57,230,255,.06); border:1px solid rgba(57,230,255,.18); font-family:'JetBrains Mono',monospace; font-size:13px; color:#9fd9ff;">{{ tag }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ENGAGEMENT MODELS ============ -->
+  <div style="position:relative; padding:110px 40px; border-top:1px solid rgba(255,255,255,.05); overflow:hidden;">
+    <div style="position:absolute; bottom:-160px; left:50%; transform:translateX(-50%); width:780px; height:480px; background:radial-gradient(ellipse at center, rgba(45,110,255,.22), transparent 65%); filter:blur(30px); animation:dx-pulse 11s ease-in-out infinite;"></div>
+    <div class="dx-reveal" style="position:relative; max-width:1200px; margin:0 auto;">
+      <div style="text-align:center; max-width:760px; margin:0 auto 48px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Engagement models</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">We solve your biggest business pains</h2>
+        <p style="font-size:16px; line-height:1.7; color:#9aa6bd; margin:18px 0 0;">Here is how we can work together — choose the model that fits.</p>
+      </div>
+      <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <div style="padding:36px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-6px); border-color:rgba(57,230,255,.4);">
+          <div style="width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#2d96ff,#39e6ff); margin-bottom:22px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:22px; color:#fff; margin:0; font-weight:600;">Staff / Resource Augmentation</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:14px 0 0;">Find exactly the right skills for your project — our specialists slot into your team and ramp fast.</p>
+        </div>
+        <div style="padding:36px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-6px); border-color:rgba(57,230,255,.4);">
+          <div style="width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#2d96ff,#39e6ff); margin-bottom:22px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:22px; color:#fff; margin:0; font-weight:600;">Product Development</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:14px 0 0;">Get your product built from ideation to deployment by a team of expert software engineering consultants.</p>
+        </div>
+        <div style="padding:36px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-6px); border-color:rgba(57,230,255,.4);">
+          <div style="width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,#2d96ff,#39e6ff); margin-bottom:22px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:22px; color:#fff; margin:0; font-weight:600;">Dedicated Development Team</h3>
+          <p style="font-size:14.5px; color:#9aa6bd; line-height:1.65; margin:14px 0 0;">A highly qualified, dedicated team delivering quality development services tailored to your goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <div style="position:relative; padding:110px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="text-align:center; margin:0 auto 48px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Testimonials</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">What they say about us</h2>
+      </div>
+      <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <div style="padding:32px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+          <div style="color:#39e6ff; font-size:20px; letter-spacing:2px;">★★★★★</div>
+          <p style="font-size:15px; color:#cdd6e6; line-height:1.7; margin:16px 0 24px;">"We've worked with DreamX for about four years on fintech innovations for banks, rewards and loyalty companies. Thank you for all the incredible work — you've been great."</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#2d96ff,#39e6ff);"></div>
+            <div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600;">Saul Goodman</div><div style="font-size:13px; color:#8a93a8;">CEO &amp; Founder</div></div>
+          </div>
+        </div>
+        <div style="padding:32px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+          <div style="color:#39e6ff; font-size:20px; letter-spacing:2px;">★★★★★</div>
+          <p style="font-size:15px; color:#cdd6e6; line-height:1.7; margin:16px 0 24px;">"DreamX redeveloped our application on time and within budget, meeting every milestone. Their skills and proactiveness accelerated the timeline and ensured a successful delivery."</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#39e6ff,#2d96ff);"></div>
+            <div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600;">Sara Wilsson</div><div style="font-size:13px; color:#8a93a8;">Designer</div></div>
+          </div>
+        </div>
+        <div style="padding:32px; border-radius:22px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+          <div style="color:#39e6ff; font-size:20px; letter-spacing:2px;">★★★★★</div>
+          <p style="font-size:15px; color:#cdd6e6; line-height:1.7; margin:16px 0 24px;">"We were pleasantly surprised by how DreamX handled a complex integration. Their engineers became a core part of our team, taking full ownership with remarkable dedication."</p>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#2d96ff,#7c5cff);"></div>
+            <div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600;">Jena Karlis</div><div style="font-size:13px; color:#8a93a8;">Store Owner</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FAQ ============ -->
+  <div id="faq" style="position:relative; padding:110px 40px; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="dx-reveal" style="max-width:860px; margin:0 auto;">
+      <div style="text-align:center; margin:0 auto 44px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">FAQ</div>
+        <h2 class="dx-text-h2-lg" style="font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Frequently asked questions</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+          <div onClick="{{ f.onClick }}" style="border:1px solid rgba(255,255,255,.09); border-radius:16px; background:rgba(255,255,255,.025); padding:22px 26px; cursor:pointer; transition:border-color .25s ease;" style-hover="border-color:rgba(57,230,255,.35);">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; color:#fff; font-weight:500;">{{ f.q }}</div>
+              <div style="flex:none; width:30px; height:30px; border-radius:8px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); color:#39e6ff; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:600;">{{ f.icon }}</div>
+            </div>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size:15px; color:#9aa6bd; line-height:1.7; margin:16px 0 0;">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <div id="contact" style="position:relative; padding:110px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05); overflow:hidden;">
+    <div style="position:absolute; top:-120px; right:-100px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.22), transparent 65%); filter:blur(26px); animation:dx-float 13s ease-in-out infinite;"></div>
+    <div class="dx-reveal dx-split" style="position:relative; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:.85fr 1.15fr; gap:56px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.26em; color:#39e6ff; text-transform:uppercase;">Contact us</div>
+        <h2 class="dx-text-h2-md" style="font-family:'Space Grotesk',sans-serif; font-size:44px; line-height:1.08; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">Let's build your dream</h2>
+        <p style="font-size:16px; line-height:1.7; color:#9aa6bd; margin:18px 0 34px;">Tell us about your project and we'll get back to you within one business day.</p>
+        <div style="display:flex; flex-direction:column; gap:22px;">
+          <div style="display:flex; gap:14px; align-items:flex-start;"><div style="flex:none; width:42px; height:42px; border-radius:11px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff;">◎</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Address</div><div style="font-size:14px; color:#9aa6bd;">4467 Street, New York, USA</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;"><div style="flex:none; width:42px; height:42px; border-radius:11px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff;">✆</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Call us</div><div style="font-size:14px; color:#9aa6bd;">+92 309 8973589</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;"><div style="flex:none; width:42px; height:42px; border-radius:11px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff;">✉</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Email us</div><div style="font-size:14px; color:#9aa6bd;">info@dreamxsol.com</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;"><div style="flex:none; width:42px; height:42px; border-radius:11px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff;">◷</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Open hours</div><div style="font-size:14px; color:#9aa6bd;">24 / 7</div></div></div>
+        </div>
+      </div>
+      <div class="dx-card-lg" style="padding:38px; border-radius:24px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1);">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onContact }}">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;pointer-events:none;">
+            <div class="dx-form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <input name="name" required placeholder="Your name" style="padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+              <input name="email" type="email" required placeholder="Your email" style="padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+            </div>
+            <input name="subject" required placeholder="Subject" style="width:100%; margin-top:16px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+            <textarea name="message" required placeholder="Tell us about your project" rows="5" style="width:100%; margin-top:16px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none; resize:vertical;" style-focus="border-color:#39e6ff;"></textarea>
+            <sc-if value="{{ contactError }}" hint-placeholder-val="{{ '' }}"><p style="margin:14px 0 0; font-size:13px; color:#ff8a8a;">{{ contactError }}</p></sc-if>
+            <button type="submit" disabled="{{ sending }}" style="margin-top:18px; width:100%; padding:16px; border:none; border-radius:12px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; cursor:pointer; opacity:{{ sending ? 0.7 : 1 }};" style-hover="box-shadow:0 14px 40px rgba(57,230,255,.4);">{{ sendLabel }}</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center; padding:48px 16px;">
+            <div style="width:64px; height:64px; border-radius:50%; margin:0 auto 22px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:flex; align-items:center; justify-content:center; font-size:30px; color:#04111f;">✓</div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:24px; color:#fff; margin:0;">Message sent!</h3>
+            <p style="font-size:15px; color:#9aa6bd; margin:12px 0 0;">Thanks for reaching out. We'll be in touch within one business day.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="position:relative; padding:64px 40px 40px; border-top:1px solid rgba(255,255,255,.07);">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="dx-footer-top" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px;">
+        <div style="max-width:320px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff;">Dream<span style="color:#39e6ff;">X</span></div>
+          <p style="font-size:14px; color:#8a93a8; line-height:1.65; margin:16px 0 20px;">Cutting-edge web development, software solutions and digital innovations to transform your business.</p>
+          <div style="display:flex; gap:10px;">
+            <a href="https://www.linkedin.com/company/dreamx-solutions/" style="text-decoration:none; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#aeb6c9; font-family:'JetBrains Mono',monospace; font-size:13px;" style-hover="border-color:#39e6ff; color:#39e6ff;">in</a>
+            <a href="#hero" style="text-decoration:none; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#aeb6c9; font-family:'JetBrains Mono',monospace; font-size:13px;" style-hover="border-color:#39e6ff; color:#39e6ff;">X</a>
+            <a href="#hero" style="text-decoration:none; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#aeb6c9; font-family:'JetBrains Mono',monospace; font-size:13px;" style-hover="border-color:#39e6ff; color:#39e6ff;">f</a>
+          </div>
+        </div>
+        <div class="dx-footer-cols" style="display:flex; gap:64px; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; color:#fff; font-weight:600; margin-bottom:16px;">Company</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:14px;">
+              <a href="#about" style="text-decoration:none; color:#8a93a8;" style-hover="color:#fff;">About</a>
+              <a href="#services" style="text-decoration:none; color:#8a93a8;" style-hover="color:#fff;">Services</a>
+              <a href="#tech" style="text-decoration:none; color:#8a93a8;" style-hover="color:#fff;">Technologies</a>
+              <a href="#contact" style="text-decoration:none; color:#8a93a8;" style-hover="color:#fff;">Contact</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; color:#fff; font-weight:600; margin-bottom:16px;">Contact</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:14px; color:#8a93a8;">
+              <span>4467 Street, New York, USA</span>
+              <span>+92 309 8973589</span>
+              <span>info@dreamxsol.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dx-footer-bottom" style="margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.07); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#6b7488;">
+        <span>© 2026 DreamX. All rights reserved.</span>
+        <span style="font-family:'JetBrains Mono',monospace;">Digitalize your dreams.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroBackground&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Glow orbs&quot;,&quot;Network&quot;,&quot;Dense net&quot;,&quot;Flow lines&quot;,&quot;Radar rings&quot;,&quot;Signal bars&quot;,&quot;None&quot;],&quot;default&quot;:&quot;Glow orbs&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heroMotion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Stagger fade&quot;,&quot;Slide in&quot;,&quot;Zoom in&quot;,&quot;Blur in&quot;,&quot;None&quot;],&quot;default&quot;:&quot;Stagger fade&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { activeTech: "Web", openFaq: -1, sent: false, sending: false, contactError: "" };
+
+  componentDidMount() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("dx-in"); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    setTimeout(() => {
+      document.querySelectorAll(".dx-reveal").forEach((el) => obs.observe(el));
+    }, 80);
+  }
+
+  async onContact(e) {
+    e.preventDefault();
+    const form = e.target;
+    this.setState({ sending: true, contactError: "" });
+    try {
+      const res = await fetch("send-mail.php", { method: "POST", body: new FormData(form) });
+      const data = await res.json();
+      if (data.success) {
+        this.setState({ sent: true, sending: false, contactError: "" });
+      } else {
+        this.setState({ sending: false, contactError: data.message || "Failed to send message." });
+      }
+    } catch (err) {
+      this.setState({ sending: false, contactError: "Network error. Please try again." });
+    }
+  }
+
+  renderVals() {
+    const services = [
+      { n: "01", title: "Web Development", desc: "High-performance, scalable websites tailored to your needs — from landing pages to enterprise platforms." },
+      { n: "02", title: "Mobile Development", desc: "High-quality native and cross-platform apps engineered for seamless user experiences." },
+      { n: "03", title: "API Integration", desc: "Seamless API integration to enhance data flow, automate processes and connect systems." },
+      { n: "04", title: "AI Development", desc: "AI-driven solutions from smart algorithms to machine-learning models that power your business." },
+      { n: "05", title: "Game Development", desc: "Immersive, engaging games across platforms that captivate players and match your vision." },
+      { n: "06", title: "Blockchain", desc: "Distributed-ledger solutions for secure, transparent and decentralized systems." },
+      { n: "07", title: "Creative Design", desc: "Visually stunning, user-friendly designs blending art and functionality seamlessly." },
+      { n: "08", title: "DevOps", desc: "Integrated development and operations for faster delivery and tighter collaboration." }
+    ];
+
+    const industries = ["Healthcare","E-Commerce","FinTech","E-Learning","Enterprise","Social Media","IoT","Travel & Hospitality","Media & Entertainment","Real Estate","Automotive","Design & Creative"];
+
+    const tech = {
+      Web: ["HTML","CSS","JavaScript","React","Angular","Vue.js","Node.js","Bootstrap","WordPress","Django","Laravel","PHP"],
+      Mobile: ["Kotlin","Swift","React Native","Flutter","Xamarin","Java","React.js","PhoneGap"],
+      Blockchain: ["Solidity","Ethereum","Smart Contracts","Bitcoin","Blockchain Security","XRP","Chainlink","IPFS"],
+      AI: ["Python","Machine Learning","Data Science","TensorFlow","Google AI","Keras","PyTorch","OpenCV","Scikit-learn"],
+      Game: ["Unity","Unreal Engine","Swift","Java","Kotlin","Pygame","C++","PlayStation SDK","Xbox SDK"],
+      DevOps: ["AWS","Azure","Google Cloud","Docker","Kubernetes","Jenkins","CI/CD","GitLab"]
+    };
+    const catNames = Object.keys(tech);
+    const cats = catNames.map((name) => {
+      const active = this.state.activeTech === name;
+      return {
+        name,
+        onClick: () => this.setState({ activeTech: name }),
+        style: "padding:9px 18px; border-radius:999px; cursor:pointer; font-size:14px; font-weight:500; transition:all .25s ease; " +
+          (active
+            ? "background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f;"
+            : "background:rgba(255,255,255,.04); color:#aeb6c9; border:1px solid rgba(255,255,255,.1);")
+      };
+    });
+
+    const faqData = [
+      { q: "What are the major services DreamX delivers?", a: "We deliver mobile and web app development, quality assurance, artificial intelligence, machine learning, UI/UX design and digital marketing." },
+      { q: "How many industries does DreamX cater to?", a: "We specialize across retail, healthcare, R&D, business/IT services, eCommerce, travel & hospitality, construction, and logistics & automotive." },
+      { q: "What types of technologies does DreamX support?", a: "PHP, Python, iOS & Android, JavaScript, Java, Node.js, RoR, .NET, AI & ML, Blockchain and UI/UX — among others." },
+      { q: "How do you manage communication with clients?", a: "Our resources adapt to your time zone and we rely on modern gateways like Slack, Jira and Skype to stay in sync." },
+      { q: "What are the major products developed by DreamX?", a: "We've built a diverse range of products including Paper Hub, Educator Doc, Pure Carlog, Softwash and TeeUp." },
+      { q: "How is DreamX different from other companies?", a: "A diverse pool of expert developers, a simple hiring process, talent shortlisted under 24 hours, a dedicated specialist, and full talent management throughout." }
+    ];
+    const faqs = faqData.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: this.state.openFaq === i,
+      icon: this.state.openFaq === i ? "−" : "+",
+      onClick: () => this.setState((s) => ({ openFaq: s.openFaq === i ? -1 : i }))
+    }));
+
+    const hm = this.props.heroMotion ?? "Stagger fade";
+    const heroMotionClass = { "Stagger fade": "", "Slide in": "hm-slide", "Zoom in": "hm-zoom", "Blur in": "hm-blur", "None": "hm-none" }[hm] || "";
+
+    const bg = this.props.heroBackground ?? "Glow orbs";
+
+    // dense network mesh (deterministic so it doesn't jump on re-render)
+    const pseudo = (i) => { const x = Math.sin(i * 127.1) * 43758.5453; return x - Math.floor(x); };
+    const dnCols = 8, dnRows = 5, NW = 1200, NH = 620, jit = 78;
+    const grid = [];
+    for (let r = 0; r < dnRows; r++) for (let c = 0; c < dnCols; c++) {
+      const i = r * dnCols + c;
+      grid.push({
+        x: Math.round(((c + 0.5) / dnCols) * NW + (pseudo(i) - 0.5) * jit),
+        y: Math.round(((r + 0.5) / dnRows) * NH + (pseudo(i + 777) - 0.5) * jit)
+      });
+    }
+    const gi = (r, c) => r * dnCols + c;
+    const dnLines = [];
+    for (let r = 0; r < dnRows; r++) for (let c = 0; c < dnCols; c++) {
+      const a = grid[gi(r, c)];
+      if (c < dnCols - 1) { const b = grid[gi(r, c + 1)]; dnLines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y }); }
+      if (r < dnRows - 1) { const b = grid[gi(r + 1, c)]; dnLines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y }); }
+      if (r < dnRows - 1 && c < dnCols - 1 && pseudo(gi(r, c) + 333) > 0.5) { const b = grid[gi(r + 1, c + 1)]; dnLines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y }); }
+    }
+    const dnNodes = grid.map((g, i) => ({ x: g.x, y: g.y, style: "animation:dx-twinkle " + (2.6 + (i % 5) * 0.4).toFixed(2) + "s " + ((i % 9) * 0.3).toFixed(2) + "s ease-in-out infinite;" }));
+    const eqBars = Array.from({ length: 46 }, (_, i) => ({
+      style: "flex:1; min-width:0; height:100%; transform-origin:bottom; transform:scaleY(.25); border-radius:6px 6px 0 0; background:linear-gradient(180deg,#39e6ff,rgba(45,150,255,.05)); animation:dx-eq " + (1.1 + (i % 5) * 0.22).toFixed(2) + "s ease-in-out infinite; animation-delay:" + ((i % 16) * 0.11).toFixed(2) + "s;"
+    }));
+
+    return {
+      rootClass: this.props.reduceMotion ? "dx-still" : "",
+      heroMotionClass,
+      bgOrbs: bg === "Glow orbs",
+      bgRings: bg === "Radar rings",
+      bgNetwork: bg === "Network",
+      bgDenseNet: bg === "Dense net",
+      bgFlow: bg === "Flow lines",
+      bgSignals: bg === "Signal bars",
+      dnLines,
+      dnNodes,
+      eqBars,
+      services,
+      industries,
+      cats,
+      techList: tech[this.state.activeTech],
+      faqs,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      sending: this.state.sending,
+      contactError: this.state.contactError,
+      sendLabel: this.state.sending ? "Sending..." : "Send message",
+      onContact: (e) => this.onContact(e)
+    };
+  }
+}
+</script>
+</body>
+</html>

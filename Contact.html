@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./responsive.js" defer></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; } html{ scroll-behavior:smooth; } body{ margin:0; background:#070b16; }
+  ::selection{ background:rgba(57,230,255,.3); color:#fff; }
+  @keyframes dx-float { 0%,100%{ transform:translate3d(0,0,0);} 50%{ transform:translate3d(0,-22px,0);} }
+  @keyframes dx-fadeup { from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
+  .dx-fu{ animation:dx-fadeup .9s cubic-bezier(.2,.7,.2,1) both; } .dx-fu2{ animation:dx-fadeup .9s .12s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); } .dx-reveal.dx-in{ opacity:1; transform:none; }
+  .dx-dd{ position:relative; display:flex; align-items:center; }
+  .dx-dd-menu{ position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:18px; opacity:0; visibility:hidden; transition:opacity .2s ease; z-index:60; }
+  .dx-dd:hover .dx-dd-menu{ opacity:1; visibility:visible; }
+  .dx-dd-menu a{ transition:background .2s ease; }
+  .dx-dd-menu a:hover{ background:rgba(57,230,255,.08); }
+</style>
+</helmet>
+<div style="background:#070b16; font-family:'Sora',sans-serif; color:#e7ecf7; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <div class="dx-nav" style="position:sticky; top:0; z-index:50; backdrop-filter:blur(14px); background:rgba(7,11,22,.72); border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="dx-nav-inner">
+      <a class="dx-logo" href="index.html" style="text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:-.01em;">Dream<span style="color:#39e6ff;">X</span></a><button type="button" class="dx-nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="dx-nav-menu">
+      <div class="dx-nav-links" style="display:flex; gap:34px; font-size:14px; align-items:center; flex-wrap:wrap;">
+        <a href="index.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Home</a>
+        <a href="About.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">About</a>
+        <a href="Services.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Services</a>
+        <div class="dx-dd">
+          <span style="cursor:pointer; color:#aeb6c9; display:inline-flex; align-items:center; gap:6px;" style-hover="color:#fff;">Healthcare<span style="font-size:8px; opacity:.7;">▼</span></span>
+          <div class="dx-dd-menu">
+            <div style="width:340px; padding:10px; border-radius:16px; background:rgba(10,15,28,.97); border:1px solid rgba(255,255,255,.1); box-shadow:0 24px 60px rgba(0,0,0,.5);">
+              <a href="Healthcare Apps.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Healthcare Application Development</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">EHR, telehealth &amp; patient apps — plus our own platform.</div></div></div>
+              </a>
+              <a href="Medical Billing.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#39e6ff,#7c5cff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Medical Billing &amp; Systems</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">Revenue cycle, billing &amp; system migration services.</div></div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="Blog.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Blog</a>
+        <a href="Contact.html" style="text-decoration:none; color:#39e6ff; font-weight:600;">Contact</a>
+      </div>
+    </div>
+    <a class="dx-nav-cta" href="Contact.html" style="text-decoration:none; padding:11px 22px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:14px;" style-hover="box-shadow:0 10px 30px rgba(57,230,255,.4);">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div style="position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.05);">
+    <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.32), transparent 65%); filter:blur(22px); animation:dx-float 13s ease-in-out infinite;"></div>
+    <div class="dx-page-header-sm dx-container" style="position:relative; max-width:1200px; margin:0 auto; padding:84px 40px 60px;"><div class="dx-fu" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.28em; color:#39e6ff; text-transform:uppercase;">Home / Contact</div>
+      <h1 class="dx-fu2 dx-text-page" style="font-family:'Space Grotesk',sans-serif; font-size:64px; line-height:1.04; font-weight:700; color:#fff; margin:16px 0 0; letter-spacing:-.03em; max-width:880px;">Let's build your <span style="background:linear-gradient(100deg,#39e6ff,#2d96ff); -webkit-background-clip:text; background-clip:text; color:transparent;">AI product</span></h1>
+      <p class="dx-fu2" style="font-size:18px; line-height:1.65; color:#9aa6bd; margin:24px 0 0; max-width:680px;">Tell us about your project and we'll get back to you within one business day.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT BODY -->
+  <div class="dx-section-contact" style="position:relative; padding:70px 40px 100px; overflow:hidden;">
+    <div style="position:absolute; bottom:-120px; left:-100px; width:480px; height:480px; border-radius:50%; background:radial-gradient(circle, rgba(45,150,255,.18), transparent 65%); filter:blur(26px); animation:dx-float 15s ease-in-out infinite;"></div>
+    <div class="dx-reveal dx-split" style="position:relative; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:.85fr 1.15fr; gap:56px;">
+      <div>
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <div style="display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="flex:none; width:44px; height:44px; border-radius:12px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff; font-size:18px;">◎</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Address</div><div style="font-size:14px; color:#9aa6bd; margin-top:3px;">4467 Street, New York, USA</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="flex:none; width:44px; height:44px; border-radius:12px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff; font-size:18px;">✆</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Call us</div><div style="font-size:14px; color:#9aa6bd; margin-top:3px;">+92 309 8973589</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="flex:none; width:44px; height:44px; border-radius:12px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff; font-size:18px;">✉</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Email us</div><div style="font-size:14px; color:#9aa6bd; margin-top:3px;">info@dreamxsol.com</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="flex:none; width:44px; height:44px; border-radius:12px; background:rgba(57,230,255,.1); border:1px solid rgba(57,230,255,.25); display:flex; align-items:center; justify-content:center; color:#39e6ff; font-size:18px;">◷</div><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:15px;">Open hours</div><div style="font-size:14px; color:#9aa6bd; margin-top:3px;">24 / 7 — we're always on</div></div></div>
+        </div>
+      </div>
+      <div class="dx-card-lg" style="padding:38px; border-radius:24px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1);">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onContact }}">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;pointer-events:none;">
+            <div class="dx-form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <input name="name" required placeholder="Your name" style="padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+              <input name="email" type="email" required placeholder="Your email" style="padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+            </div>
+            <input name="subject" required placeholder="Subject" style="width:100%; margin-top:16px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none;" style-focus="border-color:#39e6ff;">
+            <textarea name="message" required placeholder="Tell us about your project" rows="6" style="width:100%; margin-top:16px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14px; outline:none; resize:vertical;" style-focus="border-color:#39e6ff;"></textarea>
+            <sc-if value="{{ contactError }}" hint-placeholder-val="{{ '' }}"><p style="margin:14px 0 0; font-size:13px; color:#ff8a8a;">{{ contactError }}</p></sc-if>
+            <button type="submit" disabled="{{ sending }}" style="margin-top:18px; width:100%; padding:16px; border:none; border-radius:12px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; cursor:pointer; opacity:{{ sending ? 0.7 : 1 }};" style-hover="box-shadow:0 14px 40px rgba(57,230,255,.4);">{{ sendLabel }}</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center; padding:60px 16px;">
+            <div style="width:64px; height:64px; border-radius:50%; margin:0 auto 22px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:flex; align-items:center; justify-content:center; font-size:30px; color:#04111f;">✓</div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:24px; color:#fff; margin:0;">Message sent!</h3>
+            <p style="font-size:15px; color:#9aa6bd; margin:12px 0 0;">Thanks for reaching out. We'll be in touch within one business day.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, sending: false, contactError: "" };
+  componentDidMount() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("dx-in"); obs.unobserve(e.target); } });
+    }, { threshold: 0.06 });
+    setTimeout(() => { document.querySelectorAll(".dx-reveal").forEach((el) => obs.observe(el)); }, 80);
+  }
+  async onContact(e) {
+    e.preventDefault();
+    const form = e.target;
+    this.setState({ sending: true, contactError: "" });
+    try {
+      const res = await fetch("send-mail.php", { method: "POST", body: new FormData(form) });
+      const data = await res.json();
+      if (data.success) {
+        this.setState({ sent: true, sending: false, contactError: "" });
+      } else {
+        this.setState({ sending: false, contactError: data.message || "Failed to send message." });
+      }
+    } catch (err) {
+      this.setState({ sending: false, contactError: "Network error. Please try again." });
+    }
+  }
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      sending: this.state.sending,
+      contactError: this.state.contactError,
+      sendLabel: this.state.sending ? "Sending..." : "Send message",
+      onContact: (e) => this.onContact(e)
+    };
+  }
+}
+</script>
+</body>
+</html>

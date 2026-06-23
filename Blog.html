@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./responsive.js" defer></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; } html{ scroll-behavior:smooth; } body{ margin:0; background:#070b16; }
+  ::selection{ background:rgba(57,230,255,.3); color:#fff; }
+  @keyframes dx-float { 0%,100%{ transform:translate3d(0,0,0);} 50%{ transform:translate3d(0,-22px,0);} }
+  @keyframes dx-pulse { 0%,100%{ opacity:.4; transform:scale(1);} 50%{ opacity:.75; transform:scale(1.08);} }
+  @keyframes dx-fadeup { from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
+  .dx-fu{ animation:dx-fadeup .9s cubic-bezier(.2,.7,.2,1) both; } .dx-fu2{ animation:dx-fadeup .9s .12s cubic-bezier(.2,.7,.2,1) both; }
+  .dx-reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); } .dx-reveal.dx-in{ opacity:1; transform:none; }
+  .dx-dd{ position:relative; display:flex; align-items:center; }
+  .dx-dd-menu{ position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:18px; opacity:0; visibility:hidden; transition:opacity .2s ease; z-index:60; }
+  .dx-dd:hover .dx-dd-menu{ opacity:1; visibility:visible; }
+  .dx-dd-menu a{ transition:background .2s ease; }
+  .dx-dd-menu a:hover{ background:rgba(57,230,255,.08); }
+</style>
+</helmet>
+<div style="background:#070b16; font-family:'Sora',sans-serif; color:#e7ecf7; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <div class="dx-nav" style="position:sticky; top:0; z-index:50; backdrop-filter:blur(14px); background:rgba(7,11,22,.72); border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="dx-nav-inner">
+      <a class="dx-logo" href="index.html" style="text-decoration:none; font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:-.01em;">Dream<span style="color:#39e6ff;">X</span></a><button type="button" class="dx-nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="dx-nav-menu">
+      <div class="dx-nav-links" style="display:flex; gap:34px; font-size:14px; align-items:center; flex-wrap:wrap;">
+        <a href="index.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Home</a>
+        <a href="About.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">About</a>
+        <a href="Services.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Services</a>
+        <div class="dx-dd">
+          <span style="cursor:pointer; color:#aeb6c9; display:inline-flex; align-items:center; gap:6px;" style-hover="color:#fff;">Healthcare<span style="font-size:8px; opacity:.7;">▼</span></span>
+          <div class="dx-dd-menu">
+            <div style="width:340px; padding:10px; border-radius:16px; background:rgba(10,15,28,.97); border:1px solid rgba(255,255,255,.1); box-shadow:0 24px 60px rgba(0,0,0,.5);">
+              <a href="Healthcare Apps.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#2d96ff,#39e6ff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Healthcare Application Development</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">EHR, telehealth &amp; patient apps — plus our own platform.</div></div></div>
+              </a>
+              <a href="Medical Billing.html" style="display:block; text-decoration:none; padding:14px 16px; border-radius:11px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#39e6ff,#7c5cff); display:inline-flex; align-items:center; justify-content:center; color:#04111f;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:14.5px;">Medical Billing &amp; Systems</div><div style="font-size:12.5px; color:#8a93a8; margin-top:3px; line-height:1.5;">Revenue cycle, billing &amp; system migration services.</div></div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="Blog.html" style="text-decoration:none; color:#39e6ff; font-weight:600;">Blog</a>
+        <a href="Contact.html" style="text-decoration:none; color:#aeb6c9;" style-hover="color:#fff;">Contact</a>
+      </div>
+    </div>
+    <a class="dx-nav-cta" href="Contact.html" style="text-decoration:none; padding:11px 22px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:14px;" style-hover="box-shadow:0 10px 30px rgba(57,230,255,.4);">Get Started</a>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div style="position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.05);">
+    <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.3), transparent 65%); filter:blur(22px); animation:dx-float 13s ease-in-out infinite;"></div>
+    <div class="dx-page-header-sm dx-container" style="position:relative; max-width:1200px; margin:0 auto; padding:84px 40px 64px;">
+      <div class="dx-fu" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.28em; color:#39e6ff; text-transform:uppercase;">Home / Blog</div>
+      <h1 class="dx-fu2 dx-text-page" style="font-family:'Space Grotesk',sans-serif; font-size:64px; line-height:1.04; font-weight:700; color:#fff; margin:16px 0 0; letter-spacing:-.03em; max-width:880px;">AI insights from the <span style="background:linear-gradient(100deg,#39e6ff,#2d96ff); -webkit-background-clip:text; background-clip:text; color:transparent;">DreamX team</span></h1>
+      <p class="dx-fu2" style="font-size:18px; line-height:1.65; color:#9aa6bd; margin:24px 0 0; max-width:680px;">Field notes on healthcare software, medical billing, engineering and design — written by the people who build and ship it.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="dx-section" style="position:relative; padding:80px 40px 40px;">
+    <a href="Contact.html" class="dx-reveal dx-split" style="text-decoration:none; display:grid; grid-template-columns:1.1fr .9fr; gap:0; max-width:1200px; margin:0 auto; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); transition:border-color .3s ease;" style-hover="border-color:rgba(57,230,255,.4);">
+      <div style="position:relative; min-height:360px; background:linear-gradient(150deg, rgba(45,150,255,.28), rgba(57,230,255,.06)); overflow:hidden;">
+        <img src="{{ featured.img }}" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(150deg, rgba(7,11,22,.25), rgba(7,11,22,.8));"></div>
+        <div style="position:absolute; top:-60px; right:-40px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.45), transparent 65%); filter:blur(18px); animation:dx-pulse 8s ease-in-out infinite;"></div>
+        <div style="position:absolute; left:34px; top:34px; padding:7px 14px; border-radius:999px; background:rgba(7,11,22,.6); border:1px solid rgba(57,230,255,.3); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#39e6ff; text-transform:uppercase;">Featured</div>
+        <div style="position:absolute; left:34px; bottom:34px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#9fd9ff; opacity:.8;">{{ featured.cat }}</div>
+      </div>
+      <div style="padding:46px 44px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a93a8;">{{ featured.date }} · {{ featured.read }}</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:32px; line-height:1.16; color:#fff; margin:14px 0 0; font-weight:600; letter-spacing:-.02em;">{{ featured.title }}</h2>
+        <p style="font-size:15.5px; color:#9aa6bd; line-height:1.7; margin:16px 0 0;">{{ featured.excerpt }}</p>
+        <span style="margin-top:24px; color:#39e6ff; font-weight:600; font-size:15px;">Read article →</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FILTER + GRID -->
+  <div style="position:relative; padding:30px 40px 100px;">
+    <div class="dx-reveal" style="max-width:1200px; margin:0 auto;">
+      <div style="display:flex; flex-wrap:wrap; gap:9px; margin-bottom:38px;">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+          <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.name }}</div>
+        </sc-for>
+      </div>
+      <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+          <a href="Contact.html" style="text-decoration:none; display:flex; flex-direction:column; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); transition:transform .3s ease, border-color .3s ease;" style-hover="transform:translateY(-6px); border-color:rgba(57,230,255,.4);">
+            <div style="position:relative; height:170px; background:{{ p.bg }}; overflow:hidden;">
+              <img src="{{ p.img }}" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,11,22,.18), rgba(7,11,22,.72));"></div>
+              <div style="position:absolute; left:18px; top:18px; padding:6px 12px; border-radius:999px; background:rgba(7,11,22,.55); border:1px solid rgba(255,255,255,.14); font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; color:#cfeaff; text-transform:uppercase;">{{ p.cat }}</div>
+            </div>
+            <div style="padding:24px 24px 26px; display:flex; flex-direction:column; flex:1;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:#8a93a8;">{{ p.date }} · {{ p.read }}</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:19px; line-height:1.28; color:#fff; margin:11px 0 0; font-weight:600;">{{ p.title }}</h3>
+              <p style="font-size:14px; color:#9aa6bd; line-height:1.65; margin:11px 0 0;">{{ p.excerpt }}</p>
+              <span style="margin-top:auto; padding-top:18px; color:#39e6ff; font-weight:600; font-size:14px;">Read more →</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:60px 0; color:#8a93a8; font-size:15px;">No articles in this category yet — check back soon.</div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div style="position:relative; padding:80px 40px; background:#04070f; border-top:1px solid rgba(255,255,255,.05); overflow:hidden;">
+    <div style="position:absolute; bottom:-160px; left:50%; transform:translateX(-50%); width:780px; height:480px; background:radial-gradient(ellipse at center, rgba(45,110,255,.2), transparent 65%); filter:blur(30px); animation:dx-pulse 11s ease-in-out infinite;"></div>
+    <div class="dx-reveal" style="position:relative; max-width:760px; margin:0 auto; text-align:center;">
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:40px; line-height:1.08; color:#fff; margin:0; font-weight:600; letter-spacing:-.02em;">Get our best writing, monthly</h2>
+      <p style="font-size:16px; color:#9aa6bd; margin:16px 0 30px;">One thoughtful email a month on healthcare software and product engineering. No spam.</p>
+      <sc-if value="{{ notSubbed }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubscribe }}" style="display:flex; gap:12px; max-width:480px; margin:0 auto;">
+          <input placeholder="you@company.com" type="email" style="flex:1; padding:15px 18px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); color:#fff; font-family:'Sora',sans-serif; font-size:14.5px; outline:none;" style-focus="border-color:#39e6ff;">
+          <button type="submit" style="padding:15px 26px; border:none; border-radius:12px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; cursor:pointer; white-space:nowrap;" style-hover="box-shadow:0 14px 40px rgba(57,230,255,.4);">Subscribe</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ subbed }}" hint-placeholder-val="{{ false }}">
+        <div style="display:inline-flex; align-items:center; gap:12px; padding:15px 26px; border-radius:12px; background:rgba(57,230,255,.08); border:1px solid rgba(57,230,255,.25); color:#9fd9ff; font-size:15px;"><span style="color:#39e6ff; font-size:18px;">✓</span> You're subscribed — talk soon.</div>
+      </sc-if>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeCat: "All", subbed: false };
+  componentDidMount() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("dx-in"); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    setTimeout(() => { document.querySelectorAll(".dx-reveal").forEach((el) => obs.observe(el)); }, 80);
+  }
+  renderVals() {
+    const featured = {
+      cat: "Healthcare",
+      img: "https://picsum.photos/seed/dreamx-hipaa/1000/760",
+      date: "Jun 10, 2026", read: "9 min read",
+      title: "Building HIPAA-Compliant Apps: A 2026 Field Guide",
+      excerpt: "From encryption and audit logging to BAAs and access controls — the architecture decisions that keep protected health information safe without slowing your team down."
+    };
+    const all = [
+      { cat: "Healthcare", date: "Jun 4, 2026", read: "7 min", img: "https://picsum.photos/seed/dx-fhir/680/440", title: "FHIR vs HL7 v2: Choosing the Right Standard", excerpt: "When to reach for FHIR, when legacy HL7 still wins, and how to bridge both in one system.", bg: "linear-gradient(150deg, rgba(45,150,255,.3), rgba(57,230,255,.06))" },
+      { cat: "Medical Billing", date: "May 27, 2026", read: "6 min", img: "https://picsum.photos/seed/dx-billing/680/440", title: "Cutting Claim Denials by 25% with Smarter Coding", excerpt: "The denial patterns we see most often and the coding workflow that quietly fixes them.", bg: "linear-gradient(150deg, rgba(124,92,255,.28), rgba(57,230,255,.06))" },
+      { cat: "Medical Billing", date: "May 18, 2026", read: "8 min", img: "https://picsum.photos/seed/dx-migration/680/440", title: "Zero-Downtime EHR Migration, Step by Step", excerpt: "A phased, low-risk playbook for moving off a legacy EHR without losing a single record.", bg: "linear-gradient(150deg, rgba(45,150,255,.26), rgba(124,92,255,.08))" },
+      { cat: "Engineering", date: "May 9, 2026", read: "5 min", img: "https://picsum.photos/seed/dx-ship/680/440", title: "How We Ship Production Apps in 90 Days", excerpt: "The sprint cadence, tooling and rituals behind our fastest, calmest launches.", bg: "linear-gradient(150deg, rgba(57,230,255,.26), rgba(45,150,255,.08))" },
+      { cat: "AI", date: "Apr 30, 2026", read: "10 min", img: "https://picsum.photos/seed/dx-llm/680/440", title: "LLMs in Clinical Workflows: What Actually Works", excerpt: "Where large language models earn their keep in healthcare — and where they don't.", bg: "linear-gradient(150deg, rgba(124,92,255,.3), rgba(45,150,255,.08))" },
+      { cat: "Design", date: "Apr 21, 2026", read: "6 min", img: "https://picsum.photos/seed/dx-design/680/440", title: "Designing for Clinicians, Not Just Patients", excerpt: "Why the best healthcare UX starts with the people clicking through it 200 times a day.", bg: "linear-gradient(150deg, rgba(57,230,255,.28), rgba(124,92,255,.06))" }
+    ];
+    const catNames = ["All", "Healthcare", "Medical Billing", "Engineering", "AI", "Design"];
+    const cats = catNames.map((name) => {
+      const active = this.state.activeCat === name;
+      return {
+        name,
+        onClick: () => this.setState({ activeCat: name }),
+        style: "padding:9px 18px; border-radius:999px; cursor:pointer; font-size:13.5px; font-weight:500; transition:all .25s ease; " +
+          (active ? "background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f;" : "background:rgba(255,255,255,.04); color:#aeb6c9; border:1px solid rgba(255,255,255,.1);")
+      };
+    });
+    const posts = this.state.activeCat === "All" ? all : all.filter((p) => p.cat === this.state.activeCat);
+    return {
+      featured, cats, posts, empty: posts.length === 0,
+      subbed: this.state.subbed, notSubbed: !this.state.subbed,
+      onSubscribe: (e) => { e.preventDefault(); this.setState({ subbed: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

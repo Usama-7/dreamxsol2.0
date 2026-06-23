@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./responsive.js" defer></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  @keyframes dx-float { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-26px,0); } }
+  @keyframes dx-float2 { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(18px,20px,0); } }
+  @keyframes dx-pulse { 0%,100% { opacity:.5; transform: scale(1); } 50% { opacity:.85; transform: scale(1.08); } }
+  @keyframes dx-fadeup { from { opacity:0; transform: translateY(26px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes dx-fadein { from { opacity:0; } to { opacity:1; } }
+  @keyframes dx-shift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+  @keyframes dx-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes dx-spin { to { transform: rotate(360deg); } }
+  @keyframes dx-scan { 0% { transform: translateY(0); opacity:0; } 10%{opacity:.7;} 90%{opacity:.7;} 100% { transform: translateY(420px); opacity:0; } }
+  @keyframes dx-blink { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+  .dx-fu { animation: dx-fadeup .8s cubic-bezier(.2,.7,.2,1) both; }
+</style>
+</helmet>
+<div style="min-width:100%; width:max-content; min-height:100vh; box-sizing:border-box; padding:56px 56px 80px; background:#1a1d27; background-image:radial-gradient(circle at 20% 0%, #23283a 0%, #15171f 60%); font-family:'Sora',sans-serif;">
+
+  <div style="margin:0 0 44px; max-width:760px;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.32em; color:#39e6ff; text-transform:uppercase;">DreamX Solution — Landing Page</div>
+    <h1 style="font-family:'Space Grotesk',sans-serif; font-size:30px; color:#fff; margin:14px 0 8px; font-weight:600;">Three futuristic directions</h1>
+    <p style="font-size:15px; color:#9aa3b8; line-height:1.6; margin:0;">Each frame is a full above-the-fold concept on the same deep-blue + electric-cyan system. Pick the one that feels right and I'll build out the complete page — every section, fully animated.</p>
+  </div>
+
+  <div style="display:flex; gap:56px; align-items:flex-start;">
+
+    <!-- ===================== DIRECTION A — NEBULA ===================== -->
+    <div style="flex:none; width:1320px;">
+      <div style="display:flex; align-items:baseline; gap:12px; margin:0 0 14px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#39e6ff; letter-spacing:.1em;">A · NEBULA</span>
+        <span style="font-size:13px; color:#8a93a8;">Glassy depth, glowing orbs, premium &amp; soft</span>
+      </div>
+      <div data-screen-label="Direction A" style="position:relative; width:1320px; border-radius:4px; overflow:hidden; background:#070b16; box-shadow:0 30px 90px rgba(0,0,0,.5);">
+        <!-- ambient glows -->
+        <div style="position:absolute; top:-160px; left:-120px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, rgba(45,150,255,.55), transparent 65%); filter:blur(20px); animation:dx-float 11s ease-in-out infinite;"></div>
+        <div style="position:absolute; top:120px; right:-140px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.4), transparent 65%); filter:blur(20px); animation:dx-float2 13s ease-in-out infinite;"></div>
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.5) 1px, transparent 1px); background-size:46px 46px; opacity:.06;"></div>
+
+        <!-- nav -->
+        <div class="dx-inline-nav" style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:26px 48px; border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:-.01em;">Dream<span style="color:#39e6ff;">X</span></div>
+          <div style="display:flex; gap:34px; font-size:14px; color:#aeb6c9;">
+            <span>Home</span><span>About</span><span>Services</span><span>Contact</span>
+          </div>
+          <div class="dx-inline-nav-actions" style="display:flex; align-items:center; gap:18px;">
+            <span style="font-size:14px; color:#aeb6c9;">Sign in</span>
+            <div style="padding:11px 22px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:14px;">Get Started</div>
+          </div>
+        </div>
+
+        <!-- hero -->
+        <div class="dx-hero-grid dx-split" style="position:relative; display:grid; grid-template-columns:1.05fr .95fr; gap:40px; padding:84px 48px 70px; align-items:center;">
+          <div class="dx-fu">
+            <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border:1px solid rgba(57,230,255,.3); border-radius:999px; background:rgba(57,230,255,.06); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em; color:#39e6ff; text-transform:uppercase;">
+              <span style="width:7px; height:7px; border-radius:50%; background:#39e6ff; box-shadow:0 0 10px #39e6ff;"></span>Digital Product Studio
+            </div>
+            <h2 class="dx-text-h2-xl" style="font-family:'Space Grotesk',sans-serif; font-size:74px; line-height:1.02; font-weight:700; color:#fff; margin:24px 0 0; letter-spacing:-.025em;">Digitalize<br>Your <span style="background:linear-gradient(100deg,#39e6ff,#2d96ff); -webkit-background-clip:text; background-clip:text; color:transparent;">Dreams</span></h2>
+            <p style="font-size:17px; line-height:1.65; color:#9aa6bd; margin:26px 0 0; max-width:520px;">Highly skilled developers, technical experts and strategists — the unicorns and development ninjas who build the app that meets your vision, start to finish.</p>
+            <div style="display:flex; gap:14px; margin-top:38px;">
+              <div style="padding:15px 30px; border-radius:999px; background:linear-gradient(100deg,#2d96ff,#39e6ff); color:#04111f; font-weight:600; font-size:15px; box-shadow:0 14px 40px rgba(57,230,255,.35);">See how we can help</div>
+              <div style="padding:15px 30px; border-radius:999px; border:1px solid rgba(255,255,255,.18); color:#e7ecf7; font-weight:500; font-size:15px;">Our work →</div>
+            </div>
+            <div class="dx-stats-row" style="display:flex; gap:40px; margin-top:48px;">
+              <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">250+</div><div style="font-size:13px; color:#8a93a8;">Products shipped</div></div>
+              <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">8</div><div style="font-size:13px; color:#8a93a8;">Core disciplines</div></div>
+              <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">24/7</div><div style="font-size:13px; color:#8a93a8;">Support</div></div>
+            </div>
+          </div>
+          <!-- glass mock -->
+          <div class="dx-visual-sm" style="position:relative; height:430px;">
+            <div style="position:absolute; inset:0; border-radius:24px; background:linear-gradient(145deg, rgba(57,230,255,.16), rgba(45,150,255,.06)); border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(6px); box-shadow:0 30px 80px rgba(0,0,0,.45); overflow:hidden;">
+              <div style="padding:22px;">
+                <div style="display:flex; gap:7px; margin-bottom:18px;"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span></div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#7fe9ff; line-height:2;">
+                  <div style="opacity:.6;">// deploy.production</div>
+                  <div><span style="color:#2d96ff;">const</span> dream = <span style="color:#39e6ff;">build</span>(vision);</div>
+                  <div>dream.<span style="color:#39e6ff;">ship</span>(); <span style="opacity:.5;">✓ live</span></div>
+                </div>
+                <div style="margin-top:20px; height:1px; background:rgba(255,255,255,.1);"></div>
+                <div style="display:flex; gap:12px; margin-top:18px;">
+                  <div style="flex:1; height:74px; border-radius:12px; background:rgba(57,230,255,.12); border:1px solid rgba(57,230,255,.2);"></div>
+                  <div style="flex:1; height:74px; border-radius:12px; background:rgba(45,150,255,.1); border:1px solid rgba(255,255,255,.08);"></div>
+                </div>
+                <div style="margin-top:14px; height:120px; border-radius:12px; background:linear-gradient(135deg, rgba(45,150,255,.18), rgba(57,230,255,.05)); border:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden;">
+                  <svg viewBox="0 0 300 120" style="position:absolute; inset:0; width:100%; height:100%;"><polyline points="0,90 50,70 100,80 150,40 200,55 250,20 300,35" fill="none" stroke="#39e6ff" stroke-width="2.5"/></svg>
+                </div>
+              </div>
+            </div>
+            <div style="position:absolute; bottom:-22px; left:-26px; padding:14px 18px; border-radius:14px; background:rgba(12,18,34,.9); border:1px solid rgba(57,230,255,.25); backdrop-filter:blur(8px); animation:dx-float 7s ease-in-out infinite;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">99.9% uptime</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- services preview -->
+        <div style="position:relative; padding:30px 48px 60px;">
+          <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px;">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.24em; color:#39e6ff; text-transform:uppercase;">What we do</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:34px; color:#fff; margin:10px 0 0; font-weight:600;">Powerful apps, websites &amp; products</h3>
+            </div>
+          </div>
+          <div class="dx-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+            <div style="padding:24px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#2d96ff,#39e6ff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:16px;">Web Development</div><div style="font-size:13px; color:#8a93a8; margin-top:8px; line-height:1.55;">High-performance, scalable sites from landing pages to enterprise.</div></div>
+            <div style="padding:24px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#2d96ff,#39e6ff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:16px;">Mobile Development</div><div style="font-size:13px; color:#8a93a8; margin-top:8px; line-height:1.55;">Native &amp; cross-platform apps with seamless experiences.</div></div>
+            <div style="padding:24px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);"><div style="width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#2d96ff,#39e6ff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7L12 3z"/><circle cx="18.5" cy="18.5" r="1.8" fill="currentColor" stroke="none"/><circle cx="5.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:16px;">AI Development</div><div style="font-size:13px; color:#8a93a8; margin-top:8px; line-height:1.55;">Smart algorithms &amp; ML models that enhance your processes.</div></div>
+            <div style="padding:24px; border-radius:16px; background:linear-gradient(145deg,rgba(57,230,255,.16),rgba(45,150,255,.04)); border:1px solid rgba(57,230,255,.25);"><div style="width:42px;height:42px;border-radius:11px;background:#fff;margin-bottom:16px;"></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:16px;">+ 5 more</div><div style="font-size:13px; color:#b9e9f5; margin-top:8px; line-height:1.55;">Blockchain, Game, API, DevOps &amp; Creative Design.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DIRECTION B — BLUEPRINT ===================== -->
+    <div style="flex:none; width:1320px;">
+      <div style="display:flex; align-items:baseline; gap:12px; margin:0 0 14px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#39e6ff; letter-spacing:.1em;">B · BLUEPRINT</span>
+        <span style="font-size:13px; color:#8a93a8;">Technical grid, sharp lines, engineering precision</span>
+      </div>
+      <div data-screen-label="Direction B" style="position:relative; width:1320px; border-radius:4px; overflow:hidden; background:#05070e; box-shadow:0 30px 90px rgba(0,0,0,.5);">
+        <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(57,230,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(57,230,255,.06) 1px, transparent 1px); background-size:54px 54px;"></div>
+        <div style="position:absolute; top:0; left:0; right:0; height:420px; background:linear-gradient(180deg, transparent, transparent); pointer-events:none;"><div style="position:absolute; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, #39e6ff, transparent); animation:dx-scan 6s linear infinite;"></div></div>
+
+        <!-- nav -->
+        <div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:24px 48px; border-bottom:1px solid rgba(57,230,255,.15);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:23px; font-weight:700; color:#fff;">Dream<span style="color:#39e6ff;">X</span></div>
+          <div style="display:flex; gap:30px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#9aa6bd; text-transform:uppercase;">
+            <span>01 / Home</span><span>02 / About</span><span>03 / Services</span><span>04 / Contact</span>
+          </div>
+          <div style="padding:10px 20px; border:1px solid #39e6ff; color:#39e6ff; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase;">Get Started_</div>
+        </div>
+
+        <!-- hero -->
+        <div style="position:relative; padding:76px 48px 64px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.28em; color:#39e6ff; text-transform:uppercase; margin-bottom:22px;">[ SOFTWARE_HOUSE // EST. 2024 ]</div>
+          <div class="dx-split" style="display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:end;">
+            <div class="dx-fu">
+              <h2 style="font-family:'Space Grotesk',sans-serif; font-size:88px; line-height:.96; font-weight:700; color:#fff; margin:0; letter-spacing:-.03em; text-transform:uppercase;">Digitalize<br>Your <span style="color:#39e6ff;">Dreams</span><span style="color:#39e6ff; animation:dx-blink 1.1s step-end infinite;">_</span></h2>
+              <p style="font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.9; color:#8a99b3; margin:30px 0 0; max-width:560px;">&gt; A team of developers, technical experts and strategists dedicated to building the ideal product. We stand by our work — for life.</p>
+              <div style="display:flex; gap:0; margin-top:36px; border:1px solid rgba(57,230,255,.3);">
+                <div style="padding:16px 30px; background:#39e6ff; color:#04111f; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;">Init Project</div>
+                <div style="padding:16px 30px; color:#cdd6e6; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.08em; text-transform:uppercase;">View Docs →</div>
+              </div>
+            </div>
+            <div style="border:1px solid rgba(57,230,255,.2); background:rgba(57,230,255,.03); padding:0;">
+              <div style="padding:14px 18px; border-bottom:1px solid rgba(57,230,255,.15); font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff; letter-spacing:.1em;">SYSTEM_STATUS</div>
+              <div style="padding:18px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#9aa6bd; line-height:2.1;">
+                <div style="display:flex; justify-content:space-between;"><span>uptime</span><span style="color:#39e6ff;">99.9%</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>products</span><span style="color:#fff;">250+</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>disciplines</span><span style="color:#fff;">08</span></div>
+                <div style="display:flex; justify-content:space-between;"><span>support</span><span style="color:#39e6ff;">24/7</span></div>
+                <div style="margin-top:12px; height:1px; background:rgba(57,230,255,.15);"></div>
+                <div style="margin-top:12px; display:flex; gap:4px;">
+                  <span style="flex:1;height:28px;background:rgba(57,230,255,.25);"></span><span style="flex:1;height:28px;background:rgba(57,230,255,.4);"></span><span style="flex:1;height:28px;background:rgba(57,230,255,.6);"></span><span style="flex:1;height:28px;background:#39e6ff;"></span><span style="flex:1;height:28px;background:rgba(57,230,255,.5);"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- services -->
+        <div style="position:relative; padding:20px 48px 58px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.24em; color:#39e6ff; text-transform:uppercase; margin-bottom:20px;">// CORE_CAPABILITIES</div>
+          <div class="dx-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); border:1px solid rgba(57,230,255,.18); border-bottom:none;">
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">01</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">Web Dev</div></div>
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">02</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">Mobile Dev</div></div>
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">03</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">AI / ML</div></div>
+            <div style="padding:26px; border-bottom:1px solid rgba(57,230,255,.18); background:rgba(57,230,255,.06);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">04</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">Blockchain</div></div>
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">05</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">Game Dev</div></div>
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">06</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">API Integration</div></div>
+            <div style="padding:26px; border-right:1px solid rgba(57,230,255,.18); border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">07</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">DevOps</div></div>
+            <div style="padding:26px; border-bottom:1px solid rgba(57,230,255,.18);"><div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#39e6ff;">08</div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:17px; margin-top:10px;">Creative Design</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== DIRECTION C — PULSE ===================== -->
+    <div style="flex:none; width:1320px;">
+      <div style="display:flex; align-items:baseline; gap:12px; margin:0 0 14px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:#39e6ff; letter-spacing:.1em;">C · PULSE</span>
+        <span style="font-size:13px; color:#8a93a8;">Vivid gradients, bold energy, rounded &amp; dynamic</span>
+      </div>
+      <div data-screen-label="Direction C" style="position:relative; width:1320px; border-radius:4px; overflow:hidden; background:#080a1a; box-shadow:0 30px 90px rgba(0,0,0,.5);">
+        <div style="position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:900px; height:600px; background:radial-gradient(ellipse at center, rgba(45,110,255,.5), transparent 60%); filter:blur(30px); animation:dx-pulse 9s ease-in-out infinite;"></div>
+        <div style="position:absolute; bottom:-150px; right:-100px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(57,230,255,.35), transparent 65%); filter:blur(20px); animation:dx-float 10s ease-in-out infinite;"></div>
+
+        <!-- nav -->
+        <div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:26px 48px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#fff;">Dream<span style="background:linear-gradient(100deg,#7c5cff,#39e6ff);-webkit-background-clip:text;background-clip:text;color:transparent;">X</span></div>
+          <div style="display:flex; gap:8px; padding:7px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);">
+            <span style="padding:8px 18px; border-radius:999px; background:rgba(255,255,255,.1); color:#fff; font-size:14px;">Home</span>
+            <span style="padding:8px 18px; color:#aeb6c9; font-size:14px;">About</span>
+            <span style="padding:8px 18px; color:#aeb6c9; font-size:14px;">Services</span>
+            <span style="padding:8px 18px; color:#aeb6c9; font-size:14px;">Contact</span>
+          </div>
+          <div style="padding:12px 24px; border-radius:999px; background:linear-gradient(100deg,#7c5cff,#2d96ff,#39e6ff); background-size:200% auto; animation:dx-shift 4s linear infinite alternate; color:#fff; font-weight:600; font-size:14px; box-shadow:0 10px 30px rgba(124,92,255,.4);">Get Started</div>
+        </div>
+
+        <!-- hero -->
+        <div style="position:relative; text-align:center; padding:80px 48px 60px;">
+          <div class="dx-fu" style="display:inline-flex; align-items:center; gap:9px; padding:8px 18px; border-radius:999px; background:rgba(124,92,255,.12); border:1px solid rgba(124,92,255,.3); font-size:13px; color:#c3b9ff; margin-bottom:30px;">⚡ Innovative web &amp; tech solutions</div>
+          <h2 class="dx-fu" style="font-family:'Space Grotesk',sans-serif; font-size:92px; line-height:.98; font-weight:700; color:#fff; margin:0; letter-spacing:-.03em;">Digitalize Your<br><span style="background:linear-gradient(100deg,#7c5cff,#2d96ff,#39e6ff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:dx-shift 5s linear infinite alternate;">Dreams</span></h2>
+          <p style="font-size:18px; line-height:1.65; color:#a6b0c7; margin:30px auto 0; max-width:620px;">Highly skilled developers and strategists — the unicorns and development ninjas — dedicated to building the product that meets your vision.</p>
+          <div style="display:flex; gap:16px; justify-content:center; margin-top:40px;">
+            <div style="padding:16px 34px; border-radius:999px; background:linear-gradient(100deg,#7c5cff,#2d96ff,#39e6ff); background-size:200% auto; animation:dx-shift 4s linear infinite alternate; color:#fff; font-weight:600; font-size:16px; box-shadow:0 16px 44px rgba(45,110,255,.45);">See how we can help</div>
+            <div style="padding:16px 34px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); color:#fff; font-weight:500; font-size:16px;">▶ Watch reel</div>
+          </div>
+          <!-- logos strip -->
+          <div style="margin-top:64px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);">
+            <div style="display:flex; gap:48px; width:max-content; animation:dx-marquee 22s linear infinite; font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600; color:rgba(255,255,255,.35);">
+              <span>React</span><span>Node.js</span><span>Flutter</span><span>Python</span><span>Solidity</span><span>TensorFlow</span><span>AWS</span><span>Kubernetes</span><span>React</span><span>Node.js</span><span>Flutter</span><span>Python</span><span>Solidity</span><span>TensorFlow</span><span>AWS</span><span>Kubernetes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- services -->
+        <div style="position:relative; padding:24px 48px 60px;">
+          <div style="text-align:center; margin-bottom:30px;">
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:36px; color:#fff; margin:0; font-weight:600;">Everything you need to ship</h3>
+          </div>
+          <div class="dx-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+            <div style="padding:28px; border-radius:22px; background:linear-gradient(160deg, rgba(124,92,255,.14), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1);"><div style="width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#7c5cff,#39e6ff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:18px;">Web Development</div><div style="font-size:14px; color:#9aa6bd; margin-top:10px; line-height:1.6;">Scalable sites from landing pages to enterprise platforms.</div></div>
+            <div style="padding:28px; border-radius:22px; background:linear-gradient(160deg, rgba(45,150,255,.16), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1);"><div style="width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#2d96ff,#39e6ff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:18px;">Mobile Development</div><div style="font-size:14px; color:#9aa6bd; margin-top:10px; line-height:1.6;">Native &amp; cross-platform apps, seamless experiences.</div></div>
+            <div style="padding:28px; border-radius:22px; background:linear-gradient(160deg, rgba(57,230,255,.16), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1);"><div style="width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#39e6ff,#7c5cff);margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:#04111f;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7L12 3z"/><circle cx="18.5" cy="18.5" r="1.8" fill="currentColor" stroke="none"/><circle cx="5.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></div><div style="font-family:'Space Grotesk',sans-serif; color:#fff; font-weight:600; font-size:18px;">AI Development</div><div style="font-size:14px; color:#9aa6bd; margin-top:10px; line-height:1.6;">Smart algorithms &amp; ML models for your business.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
